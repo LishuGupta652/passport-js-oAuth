@@ -6,7 +6,7 @@ const Navbar = () => {
             <span className="logo">AdminAuth</span>
             <ul className="list">
                 <li className="listItem">
-                    <img src="" alt="" className="avatar" />
+                    <img src="https://avatars.dicebear.com/api/human/2696.svghttps://avatars.dicebear.com/api/human/2696.svg" alt="avatar" className="avatar" />
                 </li>
                 <li className="listItem">JohnDoe</li>
                 <li className="listItem">Logout</li>
