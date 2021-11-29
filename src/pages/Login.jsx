@@ -4,8 +4,7 @@ import Github from "../img/github.png"
 
 const Login = () => {
     return (
-        <div>
-            <div className="loginTitle">Choose a login method</div>
+        <div className="login">
             <div className="wrapper">
                 <div className="left">
                     <div className="loginButton google">
@@ -21,7 +20,15 @@ const Login = () => {
                         Github
                     </div>
                 </div>
-                <div className="right"></div>
+                <div className="center">
+                    <div className="line" />
+                    <div className="or">OR</div>
+                </div>
+                <div className="right">
+                    <input type="text" placeholder="Username"/>
+                    <input type="password" placeholder="Password" />
+                    <button className="submit">Login</button>
+                 </div>
             </div>
         </div>
     )
