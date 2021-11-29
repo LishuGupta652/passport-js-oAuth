@@ -2,10 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { BlogProvider } from "./contextapi/BlogProvider";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BlogProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </BlogProvider>,
   document.getElementById("root")
 );
