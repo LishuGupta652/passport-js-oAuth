@@ -1,6 +1,7 @@
 const cookieSession = require("cookie-session");
 const express = require("express");
 const passport = require("passport");
+require("./passport.js");
 const app = express();
 const PORT = 5000 || process.env.PORT;
 const cors = require("cors");
