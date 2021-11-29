@@ -245,4 +245,6 @@ input {
 .loginTitle {
   position: absolute;
   top: 50px;
+  font-size: 25px;
+  color: grey;
 }
