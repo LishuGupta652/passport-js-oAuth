@@ -4,7 +4,7 @@ const passport = require("passport");
 const app = express();
 const PORT = 5000 || process.env.PORT;
 const cors = require("cors");
-
+const dotenv = require("dotenv").config();
 app.use(
   cookieSession({
     name: "session",
