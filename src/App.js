@@ -11,14 +11,16 @@ function App() {
 
   useEffect(() => {
     const getUser = () => {
+      let headers = new Headers();
+
+      headers.append("Content-Type", "application/json");
+      headers.append("Accept", "application/json");
+      headers.append("Origin", "http://localhost:5000");
+
       fetch("http://localhost:5000/auth/login/success/", {
         method: "GET",
         credentials: "include",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": true,
-        },
+        headers: headers,
       })
         .then((res) => {
           if (res.status === 200) return res.json();
