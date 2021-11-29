@@ -157,6 +157,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .wrapper {
@@ -198,4 +199,50 @@ a {
   background-color: lightgrey;
   position: absolute;
   z-index: -1;
+}
+.loginButton {
+  width: 200px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.google {
+  background-color: #df4930;
+}
+.facebook {
+  background-color: #507cc0;
+}
+.github {
+  background-color: black;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+input {
+  width: 200px;
+  outline: none;
+
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+.submit {
+  width: 200px;
+  background-color: #121212;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.loginTitle {
+  position: absolute;
+  top: 50px;
 }
