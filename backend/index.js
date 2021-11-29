@@ -3,6 +3,7 @@ const express = require("express");
 const passport = require("passport");
 const app = express();
 const PORT = 5000 || process.env.PORT;
+const cors = require("cors");
 
 app.use(
   cookieSession({
@@ -14,5 +15,13 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: "GET,POST,PUT,DELETE",
+    Credentials: true,
+  })
+);
 
 app.listen(PORT, () => console.log(`Serving running on locahost:${PORT}`));
