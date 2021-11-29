@@ -4,9 +4,38 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Post from "./pages/Post";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function App() {
-  const user = false;
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const getUser = () => {
+      fetch("http://localhost:5000/auth/login/success/", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+        .then((res) => {
+          if (res.status === 200) return res.json();
+          throw new Error("Authentication have been failed");
+        })
+        .then((res) => {
+          setUser(res.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+  }, []);
+
+  console.log(user);
+
   return (
     <BrowserRouter>
       <div className="App">
