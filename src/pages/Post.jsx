@@ -1,10 +1,15 @@
 import React, { useContext } from 'react'
 import { posts } from '../data'
 import {BlogContext} from "../contextapi/BlogProvider"
+import { useLocation } from 'react-router'
 
 const Post = () => {
-    const [value] = useContext(BlogContext)
-    const post = value[2];
+    const [posts] = useContext(BlogContext)
+    const location = useLocation();
+    const path = location.pathname.split('/')[2];
+    
+    const post = posts.find(p => p.id.toString() === path)
+
     console.log(post)
     return (
         <div className="post">
