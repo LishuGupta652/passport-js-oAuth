@@ -20,6 +20,11 @@ router.get("/login/success", (req, res) => {
   }
 });
 
+router.get("/", (req, res) => {
+  req.logout();
+  res.redirect(CLIENT_URL);
+});
+
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
 router.get(

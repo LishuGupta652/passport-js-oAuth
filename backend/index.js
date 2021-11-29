@@ -5,6 +5,9 @@ require("./passport.js");
 const app = express();
 const PORT = 5000 || process.env.PORT;
 const cors = require("cors");
+
+const authRoutes = require("./routes/auth");
+
 const dotenv = require("dotenv").config();
 app.use(
   cookieSession({
@@ -24,5 +27,7 @@ app.use(
     Credentials: true,
   })
 );
+
+app.use("/auth", authRoutes);
 
 app.listen(PORT, () => console.log(`Serving running on locahost:${PORT}`));
