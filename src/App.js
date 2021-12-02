@@ -5,7 +5,6 @@ import Login from "./pages/Login";
 import Post from "./pages/Post";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 function App() {
   const [user, setUser] = useState();
 
