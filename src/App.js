@@ -14,12 +14,13 @@ function App() {
 
       headers.append("Content-Type", "application/json");
       headers.append("Accept", "application/json");
-      headers.append("Origin", "http://localhost:5000");
+      headers.append("Origin", "http://localhost: ");
 
       fetch("http://localhost:5000/auth/login/success/", {
         method: "GET",
-        credentials: "include",
-        headers: headers,
+        // credentials: "include",
+        // headers: headers,
+        "Access-Control-Allow-Credentials": true,
       })
         .then((res) => {
           if (res.status === 200) return res.json();

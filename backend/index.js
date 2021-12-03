@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+
 const cors = require("cors");
+app.use(cors());
 const cookieSession = require("cookie-session");
 const passport = require("passport");
-const passportSetup = require("./passport");
+require("./passport");
 const PORT = process.env.PORT || 5000;
 
 const authRoute = require("./routes/auth");
@@ -20,13 +22,24 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(
-  cors({
-    origin: "http://localhost/3000",
-    method: "GET,POST,PPUT,DELETE",
-    Credential: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost/5000", "http://localhost:/3000"],
+//     method: "GET,POST,PPUT,DELETE",
+//     Credential: true,
+//   })
+// );
+
+var whitelist = ["http://localhost/5000", "http://localhost:/3000"];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
 
 app.use("/auth", authRoute);
 
